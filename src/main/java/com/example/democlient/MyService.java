@@ -22,12 +22,21 @@ public class MyService {
     /**
      * prints the result of the GET request
      */
-    public String getAllProducts() {
+    public MultipleProducts getAllProducts() {
        return productRepository.getAllProducts();
     }
 
-    public String getProductById(int id) {
-        return productRepository.getProductById(    id);
+    public MyEntity getProductById(int id) {
+        return productRepository.getProductById(id);
+    }
+
+    public MyEntity[] searchProducts(String keyword){
+        MyEntity[] filteredProducts = productRepository.searchProduct(keyword)
+                                    .stream().filter(product -> product.getCategory()
+                                    .toLowerCase().contains(keyword.toLowerCase()))
+                                    .toArray(MyEntity[]::new);
+
+        return filteredProducts;
     }
 
 }

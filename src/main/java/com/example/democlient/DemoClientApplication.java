@@ -15,6 +15,7 @@ public class DemoClientApplication {
         MyService exampleService = context.getBean(MyService.class);
         exampleService.getAllProducts();
         exampleService.getProductById(1);
+       // exampleService.searchProducts("phone");
     }
 
     /**
@@ -31,7 +32,7 @@ public class DemoClientApplication {
      *
      *   5) A better way to write this webClient would be to create tests in the test folder and simply run
      *      that folder form main (that is, not putting testing method calls in the main class)
-     *      that folder form main (that is, not putting testing method calls in the main class)
+     *
      */
 
 }

@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * The repository is the persistent (data acquisition layer) of the
  * Springboot webClient model
@@ -18,12 +20,16 @@ public class ProductRepository {
         this.myFeignClient = myFeignClient;
     }
 
-    public String getAllProducts(){
+    public MultipleProducts getAllProducts(){
         return myFeignClient.getAllProducts();
     }
 
-    public String getProductById(int id){
+    public MyEntity getProductById(int id){
         return myFeignClient.getProductById(id);
+    }
+
+    public List<MyEntity> searchProduct(String keyword){
+        return myFeignClient.searchProducts(keyword);
     }
 
 
