@@ -1,10 +1,10 @@
-package com.example.democlient;
+package com.example.democlient.controllers;
 
+import com.example.democlient.models.MultipleProducts;
+import com.example.democlient.models.MyEntity;
+import com.example.democlient.services.MyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/products result")

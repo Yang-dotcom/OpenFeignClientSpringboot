@@ -1,9 +1,8 @@
-package com.example.democlient;
-import feign.Response;
+package com.example.democlient.client;
+import com.example.democlient.models.MultipleProducts;
+import com.example.democlient.models.MyEntity;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.*;
 
 import java.util.List;
 
@@ -21,7 +20,7 @@ public interface MyFeignClient {
      * @return String (Other return options are Mono, Flux, ResponseEntity, or other Java objects)
      */
     @GetMapping()
-     MultipleProducts getAllProducts();
+    MultipleProducts getAllProducts();
 
     @GetMapping("/{productID}")
     MyEntity getProductById(@PathVariable("productID") int productID);

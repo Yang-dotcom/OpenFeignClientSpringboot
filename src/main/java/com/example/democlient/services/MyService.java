@@ -1,15 +1,16 @@
-package com.example.democlient;
+package com.example.democlient.services;
 
+import com.example.democlient.models.MultipleProducts;
+import com.example.democlient.models.MyEntity;
+import com.example.democlient.client.MyFeignClient;
+import com.example.democlient.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 
 @Service
-@ComponentScan(basePackageClasses=ProductRepository.class)
+@ComponentScan(basePackageClasses= ProductRepository.class)
 public class MyService {
 
     private final ProductRepository productRepository;

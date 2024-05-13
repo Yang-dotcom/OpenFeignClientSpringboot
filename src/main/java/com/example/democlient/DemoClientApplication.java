@@ -1,5 +1,6 @@
 package com.example.democlient;
 
+import com.example.democlient.services.MyService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;

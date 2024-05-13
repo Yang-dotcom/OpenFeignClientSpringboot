@@ -1,7 +1,9 @@
-package com.example.democlient;
+package com.example.democlient.repositories;
 
+import com.example.democlient.client.MyFeignClient;
+import com.example.democlient.models.MultipleProducts;
+import com.example.democlient.models.MyEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
