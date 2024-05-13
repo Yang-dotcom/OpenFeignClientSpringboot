@@ -15,4 +15,7 @@ public interface MyFeignClient {
      */
     @GetMapping("/products")
     String getAllProducts();
+
+    @GetMapping("/products/{productID}")
+    String getProductById(@PathVariable("productID") int productID);
 }
