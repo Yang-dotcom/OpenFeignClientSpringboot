@@ -8,7 +8,7 @@ import java.util.List;
 
 
 @Data
-public class MyEntity {
+public class Product {
 
     private int id;
 

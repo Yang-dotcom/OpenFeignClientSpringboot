@@ -2,11 +2,9 @@ package com.example.democlient.repositories;
 
 import com.example.democlient.client.MyFeignClient;
 import com.example.democlient.models.MultipleProducts;
-import com.example.democlient.models.MyEntity;
+import com.example.democlient.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 /**
  * The repository is the persistent (data acquisition layer) of the
@@ -26,12 +24,16 @@ public class ProductRepository {
         return myFeignClient.getAllProducts();
     }
 
-    public MyEntity getProductById(int id){
+    public Product getProductById(int id){
         return myFeignClient.getProductById(id);
     }
 
-    public List<MyEntity> searchProduct(String keyword){
+    public MultipleProducts searchProduct(String keyword){
         return myFeignClient.searchProducts(keyword);
+    }
+
+    public String[] getCategories(){
+        return myFeignClient.getCategories();
     }
 
 

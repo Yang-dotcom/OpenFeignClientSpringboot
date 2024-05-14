@@ -16,7 +16,8 @@ public class DemoClientApplication {
         MyService exampleService = context.getBean(MyService.class);
         exampleService.getAllProducts();
         exampleService.getProductById(1);
-       // exampleService.searchProducts("phone");
+        exampleService.searchProducts("phone");
+        exampleService.getCategories();
     }
 
     /**

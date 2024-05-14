@@ -1,10 +1,8 @@
 package com.example.democlient.client;
 import com.example.democlient.models.MultipleProducts;
-import com.example.democlient.models.MyEntity;
+import com.example.democlient.models.Product;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @FeignClient(name = "myFeignClient", url = "https://dummyjson.com/products")
 /**
@@ -23,10 +21,21 @@ public interface MyFeignClient {
     MultipleProducts getAllProducts();
 
     @GetMapping("/{productID}")
-    MyEntity getProductById(@PathVariable("productID") int productID);
+    Product getProductById(@PathVariable("productID") int productID);
 
+
+    /**
+     * VERY IMPORTANT: the name of the parameter has to be the same
+     * as the one used by the API when the client is requesting directly
+     * @param q name of the string to be searched for. the name of this variable
+     *          must be the same as the name of the variable used by the API
+     * @return {@code MultipleProducts} list of products containing the word {@code String q}
+     */
     @GetMapping(value = "/search")
-    List<MyEntity> searchProducts(@RequestParam String searchKey);
+    MultipleProducts searchProducts(@RequestParam String q);
+
+    @GetMapping(value = "/categories")
+    String[] getCategories();
 
 
 

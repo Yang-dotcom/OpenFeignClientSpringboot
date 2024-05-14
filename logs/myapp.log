@@ -1,0 +1,8 @@
+2024-05-14 10:33:09 [main] INFO  c.e.democlient.DemoClientApplication - Starting DemoClientApplication using Java 22.0.1 with PID 364 (C:\Users\dingyang.chen\IdeaProjects\demoClient\target\classes started by dingyang.chen in C:\Users\dingyang.chen\IdeaProjects\demoClient)
+2024-05-14 10:33:09 [main] DEBUG c.e.democlient.DemoClientApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2024-05-14 10:33:09 [main] INFO  c.e.democlient.DemoClientApplication - No active profile set, falling back to 1 default profile: "default"
+2024-05-14 10:33:11 [main] INFO  c.e.democlient.DemoClientApplication - Started DemoClientApplication in 2.325 seconds (process running for 3.183)
+2024-05-14 10:36:02 [main] INFO  c.e.democlient.DemoClientApplication - Starting DemoClientApplication using Java 22.0.1 with PID 28144 (C:\Users\dingyang.chen\IdeaProjects\demoClient\target\classes started by dingyang.chen in C:\Users\dingyang.chen\IdeaProjects\demoClient)
+2024-05-14 10:36:02 [main] DEBUG c.e.democlient.DemoClientApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2024-05-14 10:36:02 [main] INFO  c.e.democlient.DemoClientApplication - No active profile set, falling back to 1 default profile: "default"
+2024-05-14 10:36:04 [main] INFO  c.e.democlient.DemoClientApplication - Started DemoClientApplication in 2.96 seconds (process running for 3.904)
