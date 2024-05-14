@@ -6,6 +6,9 @@ import com.example.democlient.services.MyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/products result")
 public class Controller {
@@ -41,5 +44,12 @@ public class Controller {
     @GetMapping(value = "categories")
     public String[] getCategories(){
         return myService.getCategories();
+    }
+
+    @GetMapping("/limitskip")
+    public Map<String, Object> getLimitSkipProducts(@RequestParam("limit") Integer limit,
+                                                    @RequestParam("skip") Integer skip,
+                                                    @RequestParam("select") String[] select){
+        return myService.getLimitSkipProducts(limit, skip, select);
     }
 }

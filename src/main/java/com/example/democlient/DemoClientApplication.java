@@ -7,6 +7,11 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @EnableFeignClients
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 public class DemoClientApplication {
@@ -18,6 +23,10 @@ public class DemoClientApplication {
         exampleService.getProductById(1);
         exampleService.searchProducts("phone");
         exampleService.getCategories();
+        List<String> select = new ArrayList<>();
+//        select.add("title"); select.add("price");
+//        exampleService.getLimitSkipProducts(10, 10, select);
+
     }
 
     /**

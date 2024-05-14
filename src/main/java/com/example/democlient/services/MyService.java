@@ -10,6 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -92,6 +93,10 @@ public class MyService {
 
     public String[] getCategories(){
         return productRepository.getCategories();
+    }
+
+    public Map<String, Object> getLimitSkipProducts(Integer limit, Integer skip, String[] select){
+        return productRepository.getLimitSkipProducts(limit, skip, select);
     }
 
 }
