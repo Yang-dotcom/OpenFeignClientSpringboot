@@ -2,16 +2,13 @@ package com.example.democlient.services;
 
 import com.example.democlient.models.MultipleProducts;
 import com.example.democlient.models.Product;
-import com.example.democlient.client.MyFeignClient;
 import com.example.democlient.repositories.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  *  Service class that handles the business logic of a springboot application
@@ -30,15 +27,15 @@ public class MyService {
      *      Inversion of Control is implemented through the Dependency Injection:
      *      the field {@code private final ProductRepository} is not managed (e.g. its creation)
      *      by program directly, but instead an external entity controls it (Springboot framework).
-     *
+     * <p>
      *      this allows decoupling, allowing more modularity, testability and maintainable code.
-     *
+     * <p>
      *  </p>
      */
     private final ProductRepository productRepository;
 
     @Autowired
-    public MyService(MyFeignClient myFeignClient, ProductRepository productRepository) {
+    public MyService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
@@ -95,8 +92,12 @@ public class MyService {
         return productRepository.getCategories();
     }
 
-    public Map<String, Object> getLimitSkipProducts(Integer limit, Integer skip, String[] select){
+    public Map<String, Object> getLimitSkipProducts(Integer limit, Integer skip, String select){
         return productRepository.getLimitSkipProducts(limit, skip, select);
+    }
+
+    public MultipleProducts getProductsCategory(String str){
+        return productRepository.getProdcutsCategory(str);
     }
 
 }

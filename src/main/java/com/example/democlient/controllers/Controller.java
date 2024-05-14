@@ -6,7 +6,6 @@ import com.example.democlient.services.MyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -26,9 +25,10 @@ public class Controller {
      * is the location where the result of the method getAllProducts
      * is stored
      */
-    @GetMapping()
+
+
     public MultipleProducts getAllProducts() {
-       return myService.getAllProducts();
+       return (MultipleProducts) myService.getLimitSkipProducts(0,0,"");
     }
 
     @GetMapping("/{productID}")
@@ -41,15 +41,19 @@ public class Controller {
         return myService.searchProducts(keyword);
     }
 
-    @GetMapping(value = "categories")
+    @GetMapping(value = "/categories")
     public String[] getCategories(){
         return myService.getCategories();
     }
 
-    @GetMapping("/limitskip")
-    public Map<String, Object> getLimitSkipProducts(@RequestParam("limit") Integer limit,
-                                                    @RequestParam("skip") Integer skip,
-                                                    @RequestParam("select") String[] select){
+    @GetMapping()
+    public Map<String, Object> getLimitSkipProducts(@RequestParam(value = "limit", required = false, defaultValue = "0") Integer limit,
+                                                    @RequestParam(value = "skip", required = false, defaultValue = "0") Integer skip,
+                                                    @RequestParam(value = "select",required = false, defaultValue = "") String select){
         return myService.getLimitSkipProducts(limit, skip, select);
+    }
+    @GetMapping("/category/{nameCategory}")
+    public MultipleProducts getProductsCategory(@PathVariable(name = "nameCategory") String str){
+        return myService.getProductsCategory(str);
     }
 }

@@ -6,7 +6,6 @@ import com.example.democlient.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -39,8 +38,12 @@ public class ProductRepository {
         return myFeignClient.getCategories();
     }
 
-    public Map<String, Object> getLimitSkipProducts(Integer limit, Integer skip, String[] select){
+    public Map<String, Object> getLimitSkipProducts(Integer limit, Integer skip, String select){
         return myFeignClient.getLimitSkipProducts(limit, skip, select);
+    }
+
+    public MultipleProducts getProdcutsCategory(String str){
+        return myFeignClient.getProductsCategory(str);
     }
 
 

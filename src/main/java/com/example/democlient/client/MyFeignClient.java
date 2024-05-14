@@ -4,15 +4,10 @@ import com.example.democlient.models.Product;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+
 import java.util.Map;
 
 @FeignClient(name = "myFeignClient", url = "https://dummyjson.com/products")
-/**
- * @RequestMapping annotation at the class level to define a base path for all the methods within the controller.
- * Then, you can use relative paths in the @GetMapping annotations of individual methods
- * This approach helps in reducing code duplication and makes the code more readable and maintainable.
- */
 public interface MyFeignClient {
 
     /**
@@ -44,7 +39,7 @@ public interface MyFeignClient {
 
 
     /**
-     * VERY IMPORTANT: nitially, the return type of getProducts() was ProductResponse.
+     * VERY IMPORTANT: initially, the return type of getProducts() was ProductResponse.
      * This means Feign expected the JSON response to match the structure of the ProductResponse class exactly.
      * If there is any mismatch in the structure, missing fields, or if the API response includes dynamic fields that
      * ProductResponse doesn't account for, Feign will fail to deserialize the response properly,
@@ -63,7 +58,10 @@ public interface MyFeignClient {
     @GetMapping()
     Map<String, Object> getLimitSkipProducts( @RequestParam("limit") Integer limit,
                                            @RequestParam("skip") Integer skip,
-                                           @RequestParam("select") String[] select);
+                                           @RequestParam("select") String select);
+
+    @GetMapping("/category/{categoryName}")
+    MultipleProducts getProductsCategory(@PathVariable(name = "categoryName") String categoryName);
 
 
 

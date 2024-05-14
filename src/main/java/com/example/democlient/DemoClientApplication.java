@@ -24,8 +24,6 @@ public class DemoClientApplication {
         exampleService.searchProducts("phone");
         exampleService.getCategories();
         List<String> select = new ArrayList<>();
-//        select.add("title"); select.add("price");
-//        exampleService.getLimitSkipProducts(10, 10, select);
 
     }
 
