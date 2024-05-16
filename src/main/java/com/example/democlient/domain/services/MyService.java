@@ -97,7 +97,7 @@ public class MyService {
     }
 
     public MultipleProducts getProductsCategory(String str){
-        return productRepository.getProdcutsCategory(str);
+        return productRepository.getProductsCategory(str);
     }
 
     public Product createProduct(Product product){
@@ -107,6 +107,17 @@ public class MyService {
             return response;
         } catch (Exception e) {
             log.error("Failed to create product", e);
+            throw e;  // rethrow the exception after logging it
+        }
+    }
+
+    public Map<String, Object> updateProduct(int id, Map<String, Object> product){
+        try {
+            Map<String, Object> response = productRepository.updateProduct(id, product);
+            log.info("Successfully updated product: {}", response);
+            return response;
+        } catch (Exception e) {
+            log.error("Failed to update product", e);
             throw e;  // rethrow the exception after logging it
         }
     }

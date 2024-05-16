@@ -66,6 +66,9 @@ public interface MyFeignClient {
     @PostMapping("/add")
     Product addProduct(@RequestBody Product product);
 
+    @PutMapping("/{id}")
+    Map<String, Object> updateProduct(@PathVariable(name = "id") int id, @RequestBody Map<String, Object> product);
+
 
 
 

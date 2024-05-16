@@ -63,4 +63,9 @@ public class Controller {
     public ResponseEntity<Product> postProduct(@RequestBody Product product){
         return ResponseEntity.ok(myService.createProduct(product));
     }
+
+    @PutMapping("/putting/{id}")
+    public ResponseEntity<Map<String, Object>> updateProduct(@PathVariable int id, @RequestBody Map<String, Object> product){
+        return ResponseEntity.ok(myService.updateProduct(id, product));
+    }
 }

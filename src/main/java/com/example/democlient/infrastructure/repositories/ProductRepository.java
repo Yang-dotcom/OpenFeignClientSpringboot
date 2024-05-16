@@ -42,11 +42,13 @@ public class ProductRepository {
         return myFeignClient.getLimitSkipProducts(limit, skip, select);
     }
 
-    public MultipleProducts getProdcutsCategory(String str){
+    public MultipleProducts getProductsCategory(String str){
         return myFeignClient.getProductsCategory(str);
     }
 
     public Product createProduct(Product product){return myFeignClient.addProduct(product);}
+
+    public Map<String, Object> updateProduct(int id, Map<String, Object> product){return myFeignClient.updateProduct(id, product);}
 
 
 }
