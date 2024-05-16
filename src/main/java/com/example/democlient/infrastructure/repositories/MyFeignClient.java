@@ -70,7 +70,10 @@ public interface MyFeignClient {
     Map<String, Object> updateProduct(@PathVariable(name = "id") int id, @RequestBody Map<String, Object> product);
 
 
-
-
-
+    /**
+     * alternative return type: create an inherited class to model Product class having additional
+     * fields isDeleted, deletedON which is what the API returns when deleting a product deletion
+     */
+    @DeleteMapping("/{id}")
+    Map<String, Object> deleteProduct(@PathVariable(name = "id") int id);
 }

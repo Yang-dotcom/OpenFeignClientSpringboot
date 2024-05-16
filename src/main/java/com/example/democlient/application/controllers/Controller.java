@@ -64,8 +64,17 @@ public class Controller {
         return ResponseEntity.ok(myService.createProduct(product));
     }
 
+
     @PutMapping("/putting/{id}")
     public ResponseEntity<Map<String, Object>> updateProduct(@PathVariable int id, @RequestBody Map<String, Object> product){
         return ResponseEntity.ok(myService.updateProduct(id, product));
     }
+
+
+    @DeleteMapping("/deleting/{id}")
+    public ResponseEntity<Map<String, Object>> deleteProduct(@PathVariable int id){
+        return ResponseEntity.ok(myService.deleteProduct(id));
+    }
+
+
 }

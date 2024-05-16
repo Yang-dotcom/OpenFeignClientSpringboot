@@ -50,5 +50,9 @@ public class ProductRepository {
 
     public Map<String, Object> updateProduct(int id, Map<String, Object> product){return myFeignClient.updateProduct(id, product);}
 
+    public Map<String, Object> deleteProduct(int id){return myFeignClient.deleteProduct(id);}
+
+
+
 
 }

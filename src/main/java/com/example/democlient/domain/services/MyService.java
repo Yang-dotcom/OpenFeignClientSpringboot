@@ -121,5 +121,15 @@ public class MyService {
             throw e;  // rethrow the exception after logging it
         }
     }
+    public Map<String, Object> deleteProduct(int id){
+        try {
+            Map<String, Object> response = productRepository.deleteProduct(id);
+            log.info("Successfully deleted product: {}", response);
+            return response;
+        } catch (Exception e) {
+            log.error("Failed to delete product", e);
+            throw e;  // rethrow the exception after logging it
+        }
+    }
 
 }
