@@ -1,9 +1,11 @@
-package com.example.democlient.controllers;
+package com.example.democlient.application.controllers;
 
-import com.example.democlient.models.MultipleProducts;
-import com.example.democlient.models.Product;
-import com.example.democlient.services.MyService;
+import com.example.democlient.domain.services.models.MultipleProducts;
+import com.example.democlient.domain.services.models.Product;
+import com.example.democlient.domain.services.MyService;
+import feign.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -55,5 +57,10 @@ public class Controller {
     @GetMapping("/category/{nameCategory}")
     public MultipleProducts getProductsCategory(@PathVariable(name = "nameCategory") String str){
         return myService.getProductsCategory(str);
+    }
+
+    @PostMapping("/posting")
+    public ResponseEntity<Product> postProduct(@RequestBody Product product){
+        return ResponseEntity.ok(myService.createProduct(product));
     }
 }

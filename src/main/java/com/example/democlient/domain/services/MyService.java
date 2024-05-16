@@ -1,8 +1,8 @@
-package com.example.democlient.services;
+package com.example.democlient.domain.services;
 
-import com.example.democlient.models.MultipleProducts;
-import com.example.democlient.models.Product;
-import com.example.democlient.repositories.ProductRepository;
+import com.example.democlient.domain.services.models.MultipleProducts;
+import com.example.democlient.domain.services.models.Product;
+import com.example.democlient.infrastructure.repositories.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -98,6 +98,17 @@ public class MyService {
 
     public MultipleProducts getProductsCategory(String str){
         return productRepository.getProdcutsCategory(str);
+    }
+
+    public Product createProduct(Product product){
+        try {
+            Product response = productRepository.createProduct(product);
+            log.info("Successfully created product: {}", response);
+            return response;
+        } catch (Exception e) {
+            log.error("Failed to create product", e);
+            throw e;  // rethrow the exception after logging it
+        }
     }
 
 }

@@ -1,8 +1,7 @@
-package com.example.democlient.repositories;
+package com.example.democlient.infrastructure.repositories;
 
-import com.example.democlient.client.MyFeignClient;
-import com.example.democlient.models.MultipleProducts;
-import com.example.democlient.models.Product;
+import com.example.democlient.domain.services.models.MultipleProducts;
+import com.example.democlient.domain.services.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +9,8 @@ import java.util.Map;
 
 /**
  * The repository is the persistent (data acquisition layer) of the
- * Springboot webClient model
+ * Springboot webClient model. (NOTE: I have a suspicion that it's not needed,
+ * as the openFeignClient already acts as an interface to the API to make requests)
  */
 @Repository
 public class ProductRepository {
@@ -45,6 +45,8 @@ public class ProductRepository {
     public MultipleProducts getProdcutsCategory(String str){
         return myFeignClient.getProductsCategory(str);
     }
+
+    public Product createProduct(Product product){return myFeignClient.addProduct(product);}
 
 
 }

@@ -1,13 +1,13 @@
-package com.example.democlient.client;
-import com.example.democlient.models.MultipleProducts;
-import com.example.democlient.models.Product;
+package com.example.democlient.infrastructure.repositories;
+import com.example.democlient.domain.services.models.MultipleProducts;
+import com.example.democlient.domain.services.models.Product;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 
 import java.util.Map;
 
-@FeignClient(name = "myFeignClient", url = "https://dummyjson.com/products")
+@FeignClient(name = "myFeignClient", url = "https://dummyjson.com/products", configuration = FeignConfig.class)
 public interface MyFeignClient {
 
     /**
@@ -62,6 +62,11 @@ public interface MyFeignClient {
 
     @GetMapping("/category/{categoryName}")
     MultipleProducts getProductsCategory(@PathVariable(name = "categoryName") String categoryName);
+
+    @PostMapping("/add")
+    Product addProduct(@RequestBody Product product);
+
+
 
 
 

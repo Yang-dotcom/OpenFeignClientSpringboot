@@ -1,4 +1,4 @@
-package com.example.democlient.models;
+package com.example.democlient.domain.services.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
